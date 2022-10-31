@@ -13,14 +13,14 @@ namespace TextQuest
         public double Mana { get; set; }
         public double Armor { get; set; }
         public string Name { get; set; }
-        public double RandomaizerDouble()
+        public static double RandomaizerDouble()
         {
-            Random random = new Random();
+            Random random = new();
             return random.NextDouble();
         }
-        public int Randomaizer(int from, int to)
+        public static int Randomaizer(int from, int to)
         {
-            Random random = new Random();
+            Random random = new();
             return random.Next(from, to);
         }
         public Dragon(string name, double hp, double mana)

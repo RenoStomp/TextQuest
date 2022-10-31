@@ -97,6 +97,8 @@ namespace TextQuest
                     double heal = Poisons[correctPoisonNum].Healing;
                     HP += heal;
                     Console.WriteLine($"Healing {heal} HP");
+
+                    Poisons.Remove(Poisons[correctPoisonNum]);
                     return 0;
                 }
             }
@@ -115,6 +117,8 @@ namespace TextQuest
                 return damage;
             }
 
+            Console.WriteLine("No healing poisons atm");
+            Console.WriteLine();
             Console.WriteLine($"Choose which weapon will you use for your hit: ");
             Console.ForegroundColor = ConsoleColor.DarkYellow;
 

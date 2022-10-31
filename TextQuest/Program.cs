@@ -407,7 +407,7 @@ public class Program
             Console.ForegroundColor = ConsoleColor.White;
         }
     }
-    public static void ShowInterface(Hero hero, Dragon dragon)    //дописать инвентарь и броню
+    public static void ShowInterface(Hero hero, Dragon dragon)    //дописать инвентарь (poisons)
     {
         if (dragon.HP <= 0)
         {
@@ -420,18 +420,29 @@ public class Program
         string yourHealth = $"{hero.Name} health: {Math.Round(hero.HP, 2)}  ";
         string dragonHealth = $"{dragon.Name} health: {Math.Round(dragon.HP, 2)}  ";
         
+        Console.ForegroundColor = ConsoleColor.DarkYellow;
         for(int i = 0, j = 1; i < hero.Armor.Count ; i++, j++)
         {
-            string weaponLine = $"{hero.Armor[^j].Name} - {Math.Round(hero.Armor[^j].PhysycalDefence * 100)} points  ";
-            Console.SetCursorPosition(Console.WindowWidth - weaponLine.Length, Console.WindowHeight - j);
-            Console.WriteLine(weaponLine);
-        }
+            string armorLine = $"{hero.Armor[^j].Name} - {Math.Round(hero.Armor[^j].PhysycalDefence * 100)} points  ";
+            Console.SetCursorPosition(Console.WindowWidth - armorLine.Length, Console.WindowHeight - j);
+            Console.WriteLine(armorLine);
+        }   //showing weapons in bottom right corner
 
+        Console.ForegroundColor = ConsoleColor.Green;
+        for(int i = 0, j = 1; i < hero.Poisons.Count ; i++, j++)
+        {
+            string poisonLine = $"{hero.Poisons[^j].Name} - {hero.Poisons[^j].Healing} heal points";
+            Console.SetCursorPosition(1, Console.WindowHeight - j);
+            Console.WriteLine(poisonLine);
+        }   //showing poisons in bottom left corner
+
+        Console.ForegroundColor = ConsoleColor.Gray;
         Console.SetCursorPosition(Console.WindowWidth - yourHealth.Length, 1);
         Console.WriteLine(yourHealth);
         Console.SetCursorPosition(Console.WindowWidth - dragonHealth.Length, 2);
         Console.WriteLine(dragonHealth);
         Console.WriteLine();
+        Console.ForegroundColor = ConsoleColor.White;
     }
 
     #endregion
