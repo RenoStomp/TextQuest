@@ -19,7 +19,7 @@ namespace TextQuest
         public List<Items> Armor { get; set; } = new();
         public List<Items> Poisons { get; set; } = new();
 
-        public static int Randomaizer(int from, int to)
+        public int Randomaizer(int from, int to)
         {
             Random random = new();
             return random.Next(from, to);
@@ -244,7 +244,7 @@ namespace TextQuest
             "bowline",
             "bowline"
         };
-
+        
         public bool ArmsFree { get; set; } = true;
         public bool LegsFree { get; set; } = true;
         public bool BodyFree { get; set; } = true;

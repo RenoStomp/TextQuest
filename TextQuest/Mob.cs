@@ -10,11 +10,14 @@ namespace TextQuest
     {
         public string Name = names[new Random().Next(0, 5)];
         public double HP = new Random().Next(5, 21);
-        public int Randomaizer(int from, int to)
+        public static int Randomaizer(int from, int to)
         {
-            Random random = new Random();
+            Random random = new();
             return random.Next(from, to);
         }
+
+        #region Attacks
+
         public double Bite()
         {
             Console.WriteLine($"{Name} bites your ear...LV police prepares their handcuffs!");
@@ -84,6 +87,9 @@ namespace TextQuest
             Console.WriteLine($"{damage} damage");
             return damage;
         }
+
+        #endregion
+
         public void TakesDamage(double damage)
         {
             Console.WriteLine($"\n{Name} receives {Math.Round(damage, 2)} damage");

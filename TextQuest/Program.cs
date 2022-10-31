@@ -142,7 +142,7 @@ public class Program
                 AddWeapon(item, hero);
             }
         }
-    }
+    }      //main method to add anything you want
     public static bool IsArmor(Items item)
     {
         if (item.PhysycalDefence > 0)
@@ -392,7 +392,7 @@ public class Program
             Console.WriteLine($"{hero.Weapons[i].Damage} damage points");
             Console.ForegroundColor = ConsoleColor.White;
         }
-    }
+    }    //Printing all weapons you have atm
     public static void ShowArmor(Hero hero)
     {
         Console.WriteLine("\nYour armor at the moment:");
@@ -406,8 +406,8 @@ public class Program
             Console.WriteLine($"{Math.Round(hero.Armor[i].PhysycalDefence * 100)} defense points");
             Console.ForegroundColor = ConsoleColor.White;
         }
-    }
-    public static void ShowInterface(Hero hero, Dragon dragon)    //дописать инвентарь (poisons)
+    }     //Printing all armor you have atm
+    public static void ShowInterface(Hero hero, Dragon dragon)    //Showing whole armor set and poisons in the bottom of console
     {
         if (dragon.HP <= 0)
         {
