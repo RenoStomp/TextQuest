@@ -104,7 +104,7 @@ namespace TextQuest
         public double Attack()
         {
             double damage = 0;
-            int chance = Randomaizer(1, 27);
+            int chance = Randomaizer(1, 23);
             if (chance < 10)
             {
                 damage = Bite();
@@ -113,7 +113,7 @@ namespace TextQuest
             {
                 damage = TailPunch();
             }
-            else if (chance < 27)
+            else if (chance < 23)
             {
                 damage = Incinerate();
             }
