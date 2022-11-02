@@ -60,7 +60,7 @@ namespace TextQuest
         }
         public double Attack(string name)
         {
-            if (Poisons.Count > 0)
+            if (Poisons.Count > 0)                  //if you have any healing poisons you can choose use it or use weapons
             {
 
                 Console.WriteLine("[1] - HEAL       [2] - ATTACK");
@@ -77,12 +77,12 @@ namespace TextQuest
                 if (testing == 1)
                 {
                     Console.WriteLine("Choose the poison you want to use now:");
-
+                    Console.ForegroundColor = ConsoleColor.DarkGreen;
                     for (int i = 0, num = 1; i < Poisons.Count; i++, num++)
                     {
                         Console.WriteLine($"[{num}] {Poisons[i].Name} - {Poisons[i].Healing} heal points");
                     }
-
+                    Console.ForegroundColor = ConsoleColor.White;
                     ConsoleKeyInfo poisonNum;
                     int poison;
                     do
@@ -98,13 +98,21 @@ namespace TextQuest
                     HP += heal;
                     Console.WriteLine($"Healing {heal} HP");
 
+                    int p;
+                    for ( p = 0; p < Inventory.Count; p++)
+                    {
+                        if (Inventory[p].Name.Equals(Poisons[correctPoisonNum].Name)){
+                            break;
+                        }
+                    }
+                    Inventory.Remove(Inventory[p]);
+
                     Poisons.Remove(Poisons[correctPoisonNum]);
                     return 0;
                 }
             }
 
             double damage = 0;
-            Console.WriteLine();
 
             if (Weapons.Count == 0)
             {
@@ -116,9 +124,11 @@ namespace TextQuest
                 Console.WriteLine($"{damage} damage");
                 return damage;
             }
-
-            Console.WriteLine("No healing poisons atm");
-            Console.WriteLine();
+            if(Poisons.Count == 0)
+            {
+                Console.WriteLine("No healing poisons at the moment");
+                Console.WriteLine();
+            }
             Console.WriteLine($"Choose which weapon will you use for your hit: ");
             Console.ForegroundColor = ConsoleColor.DarkYellow;
 
@@ -162,47 +172,47 @@ namespace TextQuest
             return damage;
             
         }
-        public void HealLine(int poisonNum)         //дописать хил лайны
+        public void HealLine(int poisonNum)
         {
             string poison = Poisons[poisonNum].Name;
             string phrase = "";
-
-            Console.ForegroundColor = ConsoleColor.Green;
-            if (Poisons[poisonNum].Equals(ItemStyles.weak))
+            Console.WriteLine();
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            if (Poisons[poisonNum].Name.Equals(ItemStyles.weak))
             {
                 phrase = "healLine";
             }
-            else if (Poisons[poisonNum].Equals(ItemStyles.normal))
+            else if (Poisons[poisonNum].Name.Equals(ItemStyles.normal))
             {
                 phrase = "healLine";
             }
-            else if (Poisons[poisonNum].Equals(ItemStyles.strong))
+            else if (Poisons[poisonNum].Name.Equals(ItemStyles.strong))
             {
                 phrase = "healLine";
             }
-            else if (Poisons[poisonNum].Equals(ItemStyles.swordHP))
+            else if (Poisons[poisonNum].Name.Equals(ItemStyles.swordHP))
             {
                 phrase = "healLine";
             }
-            else if (Poisons[poisonNum].Equals(ItemStyles.eye))
+            else if (Poisons[poisonNum].Name.Equals(ItemStyles.eye))
             {
                 phrase = "healLine";
             }
-            else if (Poisons[poisonNum].Equals(ItemStyles.ball))
+            else if (Poisons[poisonNum].Name.Equals(ItemStyles.ball))
             {
                 phrase = "healLine";
             }
             Console.WriteLine($"You grab {poison} {phrase}");
-
+            Console.WriteLine();
             Console.ForegroundColor = ConsoleColor.White;
 
-        }
+        }         //add healing lines
         public void WeaponAttackLine(int weaponNum)
         {
             string weapon = Weapons[weaponNum].Name;
             string randomPhrase = "";
 
-            Console.ForegroundColor = ConsoleColor.Green;
+            Console.ForegroundColor = ConsoleColor.DarkGreen;
             if (Weapons[weaponNum].Style.Equals(ItemStyles.mace))
             {
                 randomPhrase = MacePhrases[new Random().Next(0, 5)];
@@ -227,7 +237,7 @@ namespace TextQuest
             "trying to stick it in his butt but he instantly jumps away and you just beat his head with it",     //3
             "maceline",     //4
             "maceline"      //5
-        };
+        };     //add mace lines
         public string[] SwordPhrases = new string[5]
         {
             "and start chopping this bitch on peaces with your sword",
@@ -235,7 +245,7 @@ namespace TextQuest
             "swordline",
             "swordline",
             "swordline"
-        };
+        };     //add sword lines
         public string[] BowPhrases = new string[5]
         {
             "bowline",
@@ -243,8 +253,8 @@ namespace TextQuest
             "bowline",
             "bowline",
             "bowline"
-        };
-        
+        };     //add bow lines
+
         public bool ArmsFree { get; set; } = true;
         public bool LegsFree { get; set; } = true;
         public bool BodyFree { get; set; } = true;

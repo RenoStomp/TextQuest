@@ -161,127 +161,126 @@ public class Program
     }
     public static void AddArmor(Items item, Hero hero)
     {
-        if (item.Style == ItemStyles.head)
+        switch(item.Style)
         {
-            if (hero.HeadFree)
-            {
-                Console.WriteLine($"You have added {item.Name} to your armor set");
-                hero.Inventory.Add(item);
+            case ItemStyles.head:
+                if (hero.HeadFree)
+                {
+                    Console.WriteLine($"You have added {item.Name} to your armor set");
+                    hero.Inventory.Add(item);
 
-                hero.Armor.Add(item);
+                    hero.Armor.Add(item);
 
-                ShowArmor(hero);
-                hero.HeadFree = false;
-            }
-            else
-            {
-                CompareItems(hero, item);
-            }
-        }
-        else if (item.Style == ItemStyles.arms)
-        {
-            if (hero.ArmsFree)
-            {
-                Console.WriteLine($"You have added {item.Name} to your armor set");
-                hero.Inventory.Add(item);
+                    ShowArmor(hero);
+                    hero.HeadFree = false;
+                }
+                else
+                {
+                    CompareItems(hero, item);
+                }
+                break;
+            case ItemStyles.arms:
+                if (hero.ArmsFree)
+                {
+                    Console.WriteLine($"You have added {item.Name} to your armor set");
+                    hero.Inventory.Add(item);
 
-                hero.Armor.Add(item);
+                    hero.Armor.Add(item);
 
-                ShowArmor(hero);
-                hero.ArmsFree = false;
-            }
-            else
-            {
-                CompareItems(hero, item);
-            }
-        }
-        else if (item.Style == ItemStyles.legs)
-        {
-            if (hero.LegsFree)
-            {
-                Console.WriteLine($"You have added {item.Name} to your armor set");
-                hero.Inventory.Add(item);
+                    ShowArmor(hero);
+                    hero.ArmsFree = false;
+                }
+                else
+                {
+                    CompareItems(hero, item);
+                }
+                break;
+            case ItemStyles.legs:
+                if (hero.LegsFree)
+                {
+                    Console.WriteLine($"You have added {item.Name} to your armor set");
+                    hero.Inventory.Add(item);
 
-                hero.Armor.Add(item);
+                    hero.Armor.Add(item);
 
-                ShowArmor(hero);
-                hero.LegsFree = false;
-            }
-            else
-            {
-                CompareItems(hero, item);
-            }
-        }
-        else if (item.Style == ItemStyles.body)
-        {
-            if (hero.BodyFree)
-            {
-                Console.WriteLine($"You have added {item.Name} to your armor set");
-                hero.Inventory.Add(item);
+                    ShowArmor(hero);
+                    hero.LegsFree = false;
+                }
+                else
+                {
+                    CompareItems(hero, item);
+                }
+                break;
+            case ItemStyles.body:
+                if (hero.BodyFree)
+                {
+                    Console.WriteLine($"You have added {item.Name} to your armor set");
+                    hero.Inventory.Add(item);
 
-                hero.Armor.Add(item);
+                    hero.Armor.Add(item);
 
-                ShowArmor(hero);
-                hero.BodyFree = false;
-            }
-            else
-            {
-                CompareItems(hero, item);
-            }
+                    ShowArmor(hero);
+                    hero.BodyFree = false;
+                }
+                else
+                {
+                    CompareItems(hero, item);
+                }
+                break;
         }
     }
     public static void AddWeapon(Items item, Hero hero)
     {
-        if (item.Style == ItemStyles.sword)
+        switch (item.Style)
         {
-            if (hero.SwordFree)
-            {
-                Console.WriteLine($"You have added {item.Name} to your inventory");
-                hero.Inventory.Add(item);
+            case ItemStyles.sword:
+                if (hero.SwordFree)
+                {
+                    Console.WriteLine($"You have added {item.Name} to your inventory");
+                    hero.Inventory.Add(item);
 
-                hero.Weapons.Add(item);
+                    hero.Weapons.Add(item);
 
-                ShowWeapons(hero);
-                hero.SwordFree = false;
-            }
-            else
-            {
-                CompareItems(hero, item);
-            }
-        }
-        else if (item.Style == ItemStyles.mace)
-        {
-            if (hero.MaceFree)
-            {
-                Console.WriteLine($"You have added {item.Name} to your inventory");
-                hero.Inventory.Add(item);
+                    ShowWeapons(hero);
+                    hero.SwordFree = false;
+                }
+                else
+                {
+                    CompareItems(hero, item);
+                }
+                break;
+            case ItemStyles.mace:
+                if (hero.MaceFree)
+                {
+                    Console.WriteLine($"You have added {item.Name} to your inventory");
+                    hero.Inventory.Add(item);
 
-                hero.Weapons.Add(item);
+                    hero.Weapons.Add(item);
 
-                ShowWeapons(hero);
-                hero.MaceFree = false;
-            }
-            else
-            {
-                CompareItems(hero, item);
-            }
-        }
-        else if (item.Style == ItemStyles.bow)
-        {
-            if (hero.BowFree)
-            {
-                Console.WriteLine($"You have added {item.Name} to your inventory");
-                hero.Inventory.Add(item);
+                    ShowWeapons(hero);
+                    hero.MaceFree = false;
+                }
+                else
+                {
+                    CompareItems(hero, item);
+                }
+                break;
+            case ItemStyles.bow:
+                if (hero.BowFree)
+                {
+                    Console.WriteLine($"You have added {item.Name} to your inventory");
+                    hero.Inventory.Add(item);
 
-                hero.Weapons.Add(item);
+                    hero.Weapons.Add(item);
 
-                ShowWeapons(hero);
-                hero.BowFree = false;
-            }
-            else
-            {
-                CompareItems(hero, item);
-            }
+                    ShowWeapons(hero);
+                    hero.BowFree = false;
+                }
+                else
+                {
+                    CompareItems(hero, item);
+                }
+                break;
         }
     }
     public static void CompareItems(Hero hero, Items item)
@@ -302,7 +301,7 @@ public class Program
         double comparePoints = IsArmor(item) ? item.PhysycalDefence : item.Damage;
         SwitchLine(name, points, item.Name, comparePoints);
 
-        Console.WriteLine("(y - YES, n - NO)");
+        Console.WriteLine("( [Y] - YES, [N] - NO )");
 
         var choice = Console.ReadKey(true);
         while (choice.Key != ConsoleKey.Y && choice.Key != ConsoleKey.N)
@@ -508,44 +507,10 @@ public class Program
 
         HardChoice(hero);
     }
-    public static void DragonBattle(Hero hero, Dragon dragon)
-    {
-        while (hero.HP > 0 && dragon.HP > 0)
-        {
-            Console.Clear();
-
-            ShowInterface(hero, dragon);
-
-            double heroDamage = hero.Attack(dragon.Name);
-            dragon.TakesDamage(heroDamage);
-
-            PressAnyButton();
-
-            if (dragon.HP <= 0)
-            {
-                break;
-            }
-
-            ShowInterface(hero, dragon);
-
-            double dragonDamage = dragon.Attack();
-            hero.TakesDamage(dragonDamage);
-
-            PressAnyButton();
-
-            if (hero.HP <= 0)
-            {
-                break;
-            }
-
-            ShowInterface(hero, dragon);
-
-        }
-    }
     public static void HardChoice(Hero hero)
     {
         Console.ForegroundColor = ConsoleColor.Yellow;
-        Console.WriteLine($"What will {hero.Name} do now? (s - suicide, c - continue)\n");
+        Console.WriteLine($"What will {hero.Name} do now? ( [S] - suicide, [C] - continue )\n");
 
         var choice = Console.ReadKey(true);
         while (choice.Key != ConsoleKey.C && choice.Key != ConsoleKey.S)
@@ -593,6 +558,40 @@ public class Program
             Console.ReadKey(true);
 
             Environment.Exit(0);
+        }
+    }
+    public static void DragonBattle(Hero hero, Dragon dragon)
+    {
+        while (hero.HP > 0 && dragon.HP > 0)
+        {
+            Console.Clear();
+
+            ShowInterface(hero, dragon);
+
+            double heroDamage = hero.Attack(dragon.Name);
+            dragon.TakesDamage(heroDamage);
+
+            PressAnyButton();
+
+            if (dragon.HP <= 0)
+            {
+                break;
+            }
+
+            ShowInterface(hero, dragon);
+
+            double dragonDamage = dragon.Attack();
+            hero.TakesDamage(dragonDamage);
+
+            PressAnyButton();
+
+            if (hero.HP <= 0)
+            {
+                break;
+            }
+
+            ShowInterface(hero, dragon);
+
         }
     }
 }

@@ -8,20 +8,20 @@ namespace TextQuest
 {
     public static class ItemStyles
     {
-        public static string head = "head";
-        public static string arms = "arms";
-        public static string legs = "legs";
-        public static string body = "body";
+        public const string head = "head";
+        public const string arms = "arms";
+        public const string legs = "legs";
+        public const string body = "body";
 
-        public static string sword = "sword";
-        public static string mace = "mace";
-        public static string bow = "bow";
+        public const string sword = "sword";
+        public const string mace = "mace";
+        public const string bow = "bow";
 
-        public static string weak = "Weak Healing Poison";
-        public static string normal = "Normal Healing Poison";
-        public static string strong = "Strong Healing Poison";
-        public static string swordHP = "Healing Sword";
-        public static string eye = "Dead Eye";
-        public static string ball = "Mega Ball";
+        public const string weak = "Weak Healing Poison";
+        public const string normal = "Normal Healing Poison";
+        public const string strong = "Strong Healing Poison";
+        public const string swordHP = "Healing Sword";
+        public const string eye = "Dead Eye";
+        public const string ball = "Mega Ball";
     }
 }
