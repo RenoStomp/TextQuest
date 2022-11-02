@@ -60,7 +60,7 @@ namespace TextQuest
         }
         public double Attack(string name)
         {
-            if (Poisons.Count > 0)                  //if you have any healing poisons you can choose use it or use weapons
+            if (Poisons.Count > 0)                  //if you have any healing poisons you can choose: use it or use weapons
             {
 
                 Console.WriteLine("[1] - HEAL       [2] - ATTACK");
@@ -70,7 +70,7 @@ namespace TextQuest
                 do
                 {
                     whatDo = Console.ReadKey(true);
-                    _ = int.TryParse(whatDo.KeyChar.ToString(), out testing);
+                    int.TryParse(whatDo.KeyChar.ToString(), out testing);
 
                 } while (!Char.IsNumber(whatDo.KeyChar) || testing < 1 || testing > 2);
 

@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using System.Collections.Concurrent;
+using System.Diagnostics;
 using System.Text.RegularExpressions;
 using System.Xml.Linq;
 
@@ -7,6 +8,9 @@ public class Program
 {
     public static void Main(string[] args)
     {
+        Introduction();
+
+        Console.CursorVisible = true;
         Console.Write("Input name of your HERO and press ENTER: ");
         string heroName = Console.ReadLine().Trim();
         while (string.IsNullOrWhiteSpace(heroName) || !Regex.IsMatch(heroName, "^[a-zA-Z0-9 ]*$"))
@@ -18,10 +22,10 @@ public class Program
 
         Dragon dragon = new("Elden Dragon", 500, 100);
 
-        LowLVLmobs spider1 = new("Spider", 3);
-        LowLVLmobs spider2 = new("Spider", 3);
-        LowLVLmobs spider3 = new("Spider", 2);
-        LowLVLmobs spider4 = new("Spider", 2);
+        //LowLVLmobs spider1 = new("Spider", 3);
+        //LowLVLmobs spider2 = new("Spider", 3);
+        //LowLVLmobs spider3 = new("Spider", 2);
+        //LowLVLmobs spider4 = new("Spider", 2);
 
         //HighLVLmobs mobOne = new();
         //HighLVLmobs mobTwo = new();
@@ -110,6 +114,7 @@ public class Program
 
         //Тут должно быть продолжение, мобы и прочая хрень, но оно будет чуть позже...
         //зато теперь на дракона можно идти с оружием и 1000 хп....просто ради теста кнеш
+        //ещё полностью интерфейс боя показывает всё, что нужно
 
 
         DragonBattle(hero, dragon);
@@ -487,6 +492,43 @@ public class Program
         Console.ReadKey(true);
         Console.Clear();
     }
+    public static void Introduction()    //finish everything before you will name your hero
+    {
+        ShowFirstPage();
+
+
+    }
+    public static void ShowFirstPage()
+    {
+        Console.CursorVisible = false;
+
+        string mainLine = "DRAGON QUEST";
+        string secondLine = "by Emil";
+        string lastLine = "press any key to continue";
+
+        Console.BackgroundColor = ConsoleColor.White;
+        Console.Clear();
+
+        Console.ForegroundColor = ConsoleColor.DarkRed;
+        Console.SetCursorPosition(Console.WindowWidth / 2 - mainLine.Length / 2, Console.WindowHeight / 2 - 2);
+        Console.WriteLine(mainLine);
+
+        Thread.Sleep(2000);
+
+        Console.ForegroundColor = ConsoleColor.DarkGray;
+        Console.SetCursorPosition(Console.WindowWidth / 2 - secondLine.Length / 2, Console.WindowHeight / 2);
+        Console.WriteLine(secondLine);
+
+        Thread.Sleep(1000);
+
+        Console.ForegroundColor = ConsoleColor.Gray;
+        Console.SetCursorPosition(Console.WindowWidth / 2 - lastLine.Length / 2, Console.WindowHeight / 2 + 3);
+        Console.WriteLine(lastLine);
+        Console.ReadKey(true);
+        Console.ForegroundColor = ConsoleColor.White;
+        Console.BackgroundColor = ConsoleColor.Black;
+        Console.Clear();
+    }
     public static void StoryBegins(Hero hero)
     {
         Console.WriteLine();
@@ -510,7 +552,10 @@ public class Program
     public static void HardChoice(Hero hero)
     {
         Console.ForegroundColor = ConsoleColor.Yellow;
-        Console.WriteLine($"What will {hero.Name} do now? ( [S] - suicide, [C] - continue )\n");
+        Console.WriteLine($"What will {hero.Name} do now?");
+        Console.WriteLine();
+        Console.WriteLine("[S] - suicide     [C] - continue");
+        Console.WriteLine();
 
         var choice = Console.ReadKey(true);
         while (choice.Key != ConsoleKey.C && choice.Key != ConsoleKey.S)

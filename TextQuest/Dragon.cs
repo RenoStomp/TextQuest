@@ -37,7 +37,8 @@ namespace TextQuest
                 Armor = RandomaizerDouble();
                 double defence = damage * Math.Round(Armor, 2);
                 damage -= defence;
-                Console.WriteLine($"\n{Name} skin reflects {Math.Round(defence, 2)} damage but receives {Math.Round(damage, 2)} damage");
+                Console.WriteLine();
+                Console.WriteLine($"{Name} skin reflects {Math.Round(defence, 2)} damage but receives {Math.Round(damage, 2)} damage");
                 HP -= damage;
             }
         }
