@@ -8,6 +8,7 @@ public class Program
 {
     public static void Main(string[] args)
     {
+        //Console.SetWindowSize()
         Introduction();
 
         Console.CursorVisible = true;
@@ -430,7 +431,7 @@ public class Program
             string armorLine = $"{hero.Armor[^j].Name} - {Math.Round(hero.Armor[^j].PhysycalDefence * 100)} points  ";
             Console.SetCursorPosition(Console.WindowWidth - armorLine.Length, Console.WindowHeight - j);
             Console.WriteLine(armorLine);
-        }   //showing weapons in bottom right corner
+        }   //showing armor in bottom right corner
 
         Console.ForegroundColor = ConsoleColor.Green;
         for(int i = 0, j = 1; i < hero.Poisons.Count ; i++, j++)
