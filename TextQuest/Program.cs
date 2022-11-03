@@ -12,7 +12,8 @@ public class Program
         Introduction();
 
         Console.CursorVisible = true;
-        Console.Write("Input name of your HERO and press ENTER: ");
+        Console.WriteLine();
+        Console.Write("Input the name of your HERO and press ENTER: ");
         string heroName = Console.ReadLine().Trim();
         while (string.IsNullOrWhiteSpace(heroName) || !Regex.IsMatch(heroName, "^[a-zA-Z0-9 ]*$"))
         {
@@ -307,7 +308,7 @@ public class Program
         double comparePoints = IsArmor(item) ? item.PhysycalDefence : item.Damage;
         SwitchLine(name, points, item.Name, comparePoints);
 
-        Console.WriteLine("( [Y] - YES, [N] - NO )");
+        Console.WriteLine("[Y] - YES     [N] - NO");
 
         var choice = Console.ReadKey(true);
         while (choice.Key != ConsoleKey.Y && choice.Key != ConsoleKey.N)
@@ -489,7 +490,7 @@ public class Program
     }
     public static void PressAnyButton()
     {
-        Console.WriteLine("\nPress any key\n");
+        Console.WriteLine("\n Press any key\n");
         Console.ReadKey(true);
         Console.Clear();
     }
@@ -497,6 +498,21 @@ public class Program
     {
         ShowFirstPage();
 
+        Console.WriteLine();
+        Thread.Sleep(1000);
+        Console.WriteLine(" This game was made just to know my potency in creating ... anything lol");
+        Console.WriteLine();
+        Thread.Sleep(1000);
+        Console.WriteLine(" If you have any advices or complaints, text me on telegram @twentyonepovars");
+        Console.WriteLine();
+        Thread.Sleep(1000);
+        Console.WriteLine(" But for now");
+        Console.WriteLine();
+        Thread.Sleep(1000);
+        Console.ForegroundColor = ConsoleColor.Magenta;
+        Console.WriteLine(" ENJOY MY FIRST GAME :)");
+        Console.ForegroundColor = ConsoleColor.White;
+        PressAnyButton();
 
     }
     public static void ShowFirstPage()
