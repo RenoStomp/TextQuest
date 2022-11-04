@@ -494,7 +494,7 @@ public class Program
         Console.ReadKey(true);
         Console.Clear();
     }
-    public static void Introduction()    //finish everything before you will name your hero
+    public static void Introduction()    //finish everything before player need name his hero....or leave it like that
     {
         ShowFirstPage();
 
