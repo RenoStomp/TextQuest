@@ -113,7 +113,8 @@ public class Program
         Console.ReadKey(true);
 
         //override ToString()
-
+        
+        //TODO: background of a hero before village was burned
         //Тут должно быть продолжение, мобы и прочая хрень, но оно будет чуть позже...
         //зато теперь на дракона можно идти с оружием и 1000 хп....просто ради теста кнеш
         //ещё полностью интерфейс боя показывает всё, что нужно
@@ -494,7 +495,7 @@ public class Program
         Console.ReadKey(true);
         Console.Clear();
     }
-    public static void Introduction()    //finish everything before player need name his hero....or leave it like that
+    public static void Introduction()    // TODO: finish everything before player need name his hero....or leave it like that
     {
         ShowFirstPage();
 

@@ -73,7 +73,7 @@ namespace TextQuest
                 Console.WriteLine("Starts coughing hard and loses all the fuse");
                 Console.WriteLine();
 
-                Thread.Sleep(800);
+                Thread.Sleep(1000);
                 Console.WriteLine("You are safe for now...but be careful with him");
                 Console.WriteLine();
                 Console.ForegroundColor = ConsoleColor.White;
@@ -121,6 +121,7 @@ namespace TextQuest
             Console.WriteLine($"{damage} damage");
             return damage;
         }
+        //TODO: add more phrases for dragon
 
         public string[] BitePhrases = new string[5]
         {

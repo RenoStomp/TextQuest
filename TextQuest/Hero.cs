@@ -12,8 +12,6 @@ namespace TextQuest
         public double Mana { get; set; }
         public string Name { get; set; }
 
-        //public Item CurrentItem { get; set; } /*= null;*/
-
         public List<Items> Inventory { get; set; } = new();
         public List<Items> Weapons { get; set; } = new();
         public List<Items> Armor { get; set; } = new();
@@ -237,7 +235,7 @@ namespace TextQuest
             "trying to stick it in his butt but he instantly jumps away and you just beat his head with it",     //3
             "maceline",     //4
             "maceline"      //5
-        };     //add mace lines
+        };     //TODO: add mace lines
         public string[] SwordPhrases = new string[5]
         {
             "and start chopping this bitch on peaces with your sword",
@@ -245,7 +243,7 @@ namespace TextQuest
             "swordline",
             "swordline",
             "swordline"
-        };     //add sword lines
+        };     //TODO: add sword lines
         public string[] BowPhrases = new string[5]
         {
             "bowline",
@@ -253,7 +251,7 @@ namespace TextQuest
             "bowline",
             "bowline",
             "bowline"
-        };     //add bow lines
+        };     //TODO: add bow lines
 
         public bool ArmsFree { get; set; } = true;
         public bool LegsFree { get; set; } = true;
@@ -264,17 +262,4 @@ namespace TextQuest
         public bool MaceFree { get; set; } = true;
         public bool BowFree { get; set; } = true;
     }
-
-    //public enum Item
-    //{
-    //    Arms,
-    //    Legs,
-    //    Body,
-    //    Head,
-
-    //    Sword,
-    //    Mace,
-    //    Bow,
-    //    Not
-    //}
 }
