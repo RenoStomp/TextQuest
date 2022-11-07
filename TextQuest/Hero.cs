@@ -232,18 +232,26 @@ namespace TextQuest
         {
             "comes closer and start beating the shit out of that bastard",   //1
             "throw it to him as hard as you can and while he shaking his head, run to your weapon and take it back",        //2
-            "trying to stick it in his butt but he instantly jumps away and you just beat his head with it",     //3
-            "maceline",     //4
-            "maceline"      //5
-        };     //TODO: add mace lines
+            "then trying to stick it in his butt but he instantly jumps away and you just beat his head with it",     //3
+            "start screaming out loud and running to that peace of shit but slipping on the ground and your mace" +
+            " flying out of your hands and landing right on the head of your opponent...\n" +
+            "While he shocked you quickly take your weapon back and getting ready for the next punch",     //4
+            "coming close to your opponent, raising your hand and landing your heavy mace on his head" +
+            "...then on his back and continue beating the shit out of him"      //5
+        };
         public string[] SwordPhrases = new string[5]
         {
-            "and start chopping this bitch on peaces with your sword",
-            "swordline",
-            "swordline",
-            "swordline",
-            "swordline"
-        };     //TODO: add sword lines
+            "and start chopping this bitch on peaces with your sword",        //1
+            "stick it in his ass and cranking it till the blood will not stop dripping of this bastard",   //2
+            "gently touches his stomach with the tip of your strong sword...you feel that you want to " +
+            "penetrate him deeply...and do that right now...with your sword...right in his stomach",     //3
+            "throw your sword in the sky and start running to him, trying to beat him with hand " +
+            "but he moves too fast for you...few seconds later sword falling right on his head " +
+            "and getting stuck in it\n" +
+            "you come closer, get your bloody sword back and getting ready for the next punch",    //4
+            "squeezing it in your hands hard and while he scream \"!!!SUKA BLYAT!!!\" trying to " +
+            "stick it in his mouth but he turns his head and you cut his cheeks"     //5
+        };
         public string[] BowPhrases = new string[5]
         {
             "bowline",
